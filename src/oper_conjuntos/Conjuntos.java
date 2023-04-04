@@ -40,8 +40,9 @@ public class Conjuntos {
     public Conjuntos union(Conjuntos b) {
 
         Conjuntos res = new Conjuntos(tamaño + b.getTamaño());
+
         int ban = 0;
-        int ref = -1;
+        int ref = tamaño;
 
         for (int i = 0; i < tamaño; i++) {
 
@@ -49,31 +50,35 @@ public class Conjuntos {
 
         }
 
-        //System.out.println("pase por aca 1");
-        
-        for (int j = 0; j < tamaño; j++) {
-            for (int k = 0; k < b.getTamaño(); k++) {
+        res.Mostrar();
 
-                if (conj[j] == b.conj[k]) {
+        //System.out.println("pase por aca 1");
+        for (int j = 0; j < b.getTamaño(); j++) {
+
+            for (int k = 0; k < tamaño; k++) {
+
+                if (conj[k] == b.conj[j]) {
                     //System.out.println("pase por aca 2" + ban);
                     ban++;
                 }
 
             }
 
-            if (ban <= 0) {
+            if (ban == 0 && b.getConj()[j] != 0) {
+
+                //System.out.println("entre y debo insertar el numero: " + b.getConj()[j]);
+               // System.out.println("debo ingresar en: " + ref);
+
+                res.insertar(b.getConj()[j], ref, 1);
                 ref++;
-                //System.out.println("entre y debo insertar el numero: "+ conj[j] );
-                res.insertar(b.getConj()[j], tamaño+ref , 1);
-                
 
             }
             ban = 0;
 
         }
-        
-        
-     return res;
+
+        //System.out.println("fin del ciclo");
+        return res;
 
     }
     
@@ -157,6 +162,30 @@ public class Conjuntos {
     }
     
     
+    public boolean vacio() {
+
+        int ban = 0;
+
+        boolean ban_1 = false;
+
+        for (int j = 0; j < tamaño; j++) {
+
+            if (conj[j] == 0) {
+                //System.out.println("pase por aca 2" + ban);
+                ban++;
+            }
+
+        }
+
+        if (tamaño == ban) {
+
+            ban_1 = true;
+        }
+
+        return ban_1;
+    } 
+    
+    
     
     
     
@@ -187,9 +216,7 @@ public class Conjuntos {
         return tamaño;
     }
 
-    public void setTamaño(int tamaño) {
-        this.tamaño = tamaño;
-    }
+  
     
     
     
