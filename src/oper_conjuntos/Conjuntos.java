@@ -301,6 +301,71 @@ public class Conjuntos {
         return pos;
     }
 
+    public Conjuntos diferencia(Conjuntos b) {
+
+        Conjuntos res = new Conjuntos(tamaño + b.getTamaño());
+
+        int ban = 0;
+        int ref = 0;
+
+        for (int j = 0; j < tamaño; j++) {
+
+            for (int k = 0; k < b.getTamaño(); k++) {
+
+                if (conj[j] == b.conj[k]) {
+                    //System.out.println("pase por aca 2" + ban);
+                    ban++;
+                }
+
+            }
+
+            if (ban == 0 && conj[j]!=0 ) {
+
+                //System.out.println("entre y debo insertar el numero: " + b.getConj()[j]);
+                //System.out.println("debo ingresar en: " + ref);
+                res.insertar(conj[j], ref, 1);
+                ref++;
+
+            }
+            ban = 0;
+
+        }
+
+        //System.out.println("fin del ciclo");
+        return res;
+
+    }
+    
+    
+    public Conjuntos diferSimetrica(Conjuntos b) {
+        
+        //la diferencia simetrica es igual a diferencia entre a y b , unido con la diferencia de b y a.
+
+        Conjuntos res = new Conjuntos(tamaño + b.getTamaño());
+        Conjuntos res_1 = new Conjuntos(tamaño + b.getTamaño());
+        Conjuntos res_2 = new Conjuntos(tamaño + b.getTamaño());
+
+        res = union(b);
+        res_1 = intercepcion(b);
+        res_2 = res.diferencia(res_1);
+
+        return res_2;
+
+    }
+    
+   public void vaciar(){
+       
+    for (int i = 0; i < tamaño; i++) {
+            conj[i]=0;
+
+        }   
+     
+   } 
+
+    
+    
+    
+    
 
     
     
