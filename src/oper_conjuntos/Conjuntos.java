@@ -50,8 +50,7 @@ public class Conjuntos {
 
         }
 
-        res.Mostrar();
-
+        //res.Mostrar();
         //System.out.println("pase por aca 1");
         for (int j = 0; j < b.getTamaño(); j++) {
 
@@ -67,8 +66,7 @@ public class Conjuntos {
             if (ban == 0 && b.getConj()[j] != 0) {
 
                 //System.out.println("entre y debo insertar el numero: " + b.getConj()[j]);
-               // System.out.println("debo ingresar en: " + ref);
-
+                //System.out.println("debo ingresar en: " + ref);
                 res.insertar(b.getConj()[j], ref, 1);
                 ref++;
 
@@ -81,26 +79,20 @@ public class Conjuntos {
         return res;
 
     }
-    
-    
-    
-    
-    public void Mostrar(){
+
+    public void Mostrar() {
         String b = " ";
-        
-     for (int i=0; i<tamaño; i++){
-         
-       b = b + conj[i] + " " ;
-         
-         
-     }   
-        
-        
-        System.out.println(b);   
-        
-        
+
+        for (int i = 0; i < tamaño; i++) {
+
+            b = b + conj[i] + " ";
+
+        }
+
+        System.out.println(b);
+
     }
-    
+
     public int cantidadElementos() {
 
         int cant = 0;
@@ -116,8 +108,7 @@ public class Conjuntos {
 
         return cant;
     }
-  
-    
+
     public boolean pertenece(int a) {
 
         boolean ban = false;
@@ -134,7 +125,7 @@ public class Conjuntos {
 
         return ban;
     }
-    
+
     public boolean subconjuntos(Conjuntos b) {
 
         int ban = 0;
@@ -160,8 +151,7 @@ public class Conjuntos {
 
         return ban_1;
     }
-    
-    
+
     public boolean vacio() {
 
         int ban = 0;
@@ -183,12 +173,76 @@ public class Conjuntos {
         }
 
         return ban_1;
-    } 
-    
-    
-    
-    
-    
+    }
+
+    public Conjuntos intercepcion(Conjuntos b) {
+
+        Conjuntos res = new Conjuntos(tamaño + b.getTamaño());
+
+        int ban = 0;
+        int ref = 0;
+
+        for (int j = 0; j < b.getTamaño(); j++) {
+
+            for (int k = 0; k < tamaño; k++) {
+
+                if (conj[k] == b.conj[j]) {
+                    //System.out.println("pase por aca 2" + ban);
+                    ban++;
+                }
+
+            }
+
+            if (ban != 0 && b.getConj()[j] != 0) {
+
+                //System.out.println("entre y debo insertar el numero: " + b.getConj()[j]);
+                //System.out.println("debo ingresar en: " + ref);
+                res.insertar(b.getConj()[j], ref, 1);
+                ref++;
+
+            }
+            ban = 0;
+
+        }
+
+        //System.out.println("fin del ciclo");
+        return res;
+
+    }
+
+    public boolean igualdad(Conjuntos b) {
+
+        boolean igual = false;
+        int ban = 0;
+
+        if (tamaño == b.getTamaño()) {
+
+            for (int j = 0; j < b.getTamaño(); j++) {
+
+                for (int k = 0; k < tamaño; k++) {
+
+                    if (conj[k] == b.conj[j]) {
+                        //System.out.println("pase por aca 2" + ban);
+                        ban++;
+                    }
+
+                }
+
+            }
+
+            if (ban == tamaño && ban == b.getTamaño()) {
+
+                igual = true;
+
+            }
+
+        } else {
+            igual = false;
+        }
+
+        return igual;
+    }
+
     
     
     
@@ -197,8 +251,7 @@ public class Conjuntos {
     
     
 
-    
-    
+
     
     
     

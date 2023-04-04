@@ -18,6 +18,7 @@ public class Oper_Conjuntos {
         Conjuntos a = new Conjuntos(5);
         Conjuntos b = new Conjuntos(7);
         Conjuntos c = new Conjuntos(10);
+        Conjuntos d = new Conjuntos(5);
         System.out.println("el conjunto c esta vacio: " + c.vacio());
         
         
@@ -25,7 +26,7 @@ public class Oper_Conjuntos {
         a.insertar(1, 1, 1);
         a.insertar(2, 2, 1);
         a.insertar(3, 3, 1);
-        a.insertar(4, 4, 1);
+        a.insertar(46556, 4, 1);
         
         b.insertar(10, 0, 1);
         b.insertar(1, 1, 1);
@@ -38,14 +39,25 @@ public class Oper_Conjuntos {
         
         
         
-        
-        a.Mostrar();               
+        System.out.println("conjunto a:");
+        a.Mostrar();  
+        System.out.println("conjunto b:");
         b.Mostrar();
-        
+        System.out.println("union de a y b:");
         c = a.union(b);
-        
-        
         c.Mostrar();
+        System.out.println("intercepcion de a y b:");
+        c=a.intercepcion(b);
+        c.Mostrar();
+        
+        d.insertar(10, 4, 1);
+        d.insertar(1, 3, 1);
+        d.insertar(2, 2, 1);
+        d.insertar(3, 1, 1);
+        d.insertar(46556, 0, 1);
+        
+        System.out.println("a y d son iguales ? : " + a.igualdad(d));
+
         
        
         
