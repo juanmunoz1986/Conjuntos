@@ -144,7 +144,7 @@ public class Conjuntos {
 
         }
 
-        if (ban == ref) {
+        if (ban >= ref) {
 
             ban_1 = true;
         }
@@ -243,13 +243,63 @@ public class Conjuntos {
         return igual;
     }
 
-    
-    
-    
-    
-    
-    
-    
+    public Conjuntos complemento(Conjuntos b) {
+
+        Conjuntos res = new Conjuntos(b.getTamaño());
+
+        int ban = 0;
+        int ref = 0;
+
+        for (int j = 0; j < b.getTamaño(); j++) {
+
+            for (int k = 0; k < tamaño; k++) {
+
+                if (conj[k] == b.conj[j]) {
+                    //System.out.println("pase por aca 2" + ban);
+                    ban++;
+                }
+
+            }
+
+            if (ban == 0 && b.getConj()[j] != 0) {
+
+                res.insertar(b.getConj()[j], ref, 1);
+                ref++;
+
+            }
+            ban = 0;
+
+        }
+
+        return res;
+    }
+
+    public void borrar(int a) {
+
+        for (int i = 0; i < tamaño; i++) {
+            if (conj[i] == a) {
+                conj[i] = 0;
+
+            }
+
+        }
+
+    }
+
+    public int posicion(int a) {
+
+        int pos = 0;
+
+        for (int i = 0; i < tamaño; i++) {
+            if (conj[i] == a) {
+
+                pos = i;
+
+            }
+
+        }
+        return pos;
+    }
 
 
     
@@ -269,15 +319,4 @@ public class Conjuntos {
         return tamaño;
     }
 
-  
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
 }
