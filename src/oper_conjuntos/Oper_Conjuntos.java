@@ -17,6 +17,7 @@ public class Oper_Conjuntos {
          
         Conjuntos a = new Conjuntos(5);
         Conjuntos b = new Conjuntos(5);
+        Conjuntos c = new Conjuntos(5);
         
         a.insertar(10, 0, 1);
         a.insertar(1, 1, 1);
@@ -33,10 +34,20 @@ public class Oper_Conjuntos {
         a.Mostrar();
         b.Mostrar();
         
-        a.union(b);
-       
+        c = a.union(b);
         
+        c.Mostrar();
         
+        System.out.println("el conjunto a tiene: " + a.cantidadElementos() + " elementos");   
+        System.out.println("el conjunto b tiene: " + b.cantidadElementos() + " elementos"); 
+        System.out.println("el conjunto c tiene: " + c.cantidadElementos() + " elementos"); 
+
+        
+        System.out.println("el conjunto a "+ c.subconjuntos(a)+" es un sub conjunto de c");
+        System.out.println("el conjunto b "+ c.subconjuntos(b)+" es un sub conjunto de c");
+        System.out.println("el conjunto a "+ a.subconjuntos(b)+" es un sub conjunto de b");
+        System.out.println("el conjunto b "+ b.subconjuntos(a)+" es un sub conjunto de a");
+        System.out.println("el conjunto c "+ a.subconjuntos(c)+" es un sub conjunto de c");
         
         
         

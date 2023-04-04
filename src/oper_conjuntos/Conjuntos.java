@@ -37,7 +37,7 @@ public class Conjuntos {
         }
     }
 
-    public void union(Conjuntos b) {
+    public Conjuntos union(Conjuntos b) {
 
         Conjuntos res = new Conjuntos(tamaño + b.getTamaño());
         int ban = 0;
@@ -73,7 +73,7 @@ public class Conjuntos {
         }
         
         
-     res.Mostrar();
+     return res;
 
     }
     
@@ -95,6 +95,85 @@ public class Conjuntos {
         
         
     }
+    
+    public int cantidadElementos() {
+
+        int cant = 0;
+
+        for (int i = 0; i < tamaño; i++) {
+
+            if (conj[i] != 0) {
+
+                cant++;
+
+            }
+        }
+
+        return cant;
+    }
+  
+    
+    public boolean pertenece(int a) {
+
+        boolean ban = false;
+
+        for (int i = 0; i < tamaño; i++) {
+
+            if (conj[i] == a) {
+
+                ban = true;
+
+            }
+
+        }
+
+        return ban;
+    }
+    
+    public boolean subconjuntos(Conjuntos b) {
+
+        int ban = 0;
+        int ref = b.cantidadElementos();
+        boolean ban_1 = false;
+
+        for (int j = 0; j < tamaño; j++) {
+            for (int k = 0; k < b.getTamaño(); k++) {
+
+                if (conj[j] == b.conj[k]) {
+                    //System.out.println("pase por aca 2" + ban);
+                    ban++;
+                }
+
+            }
+
+        }
+
+        if (ban == ref) {
+
+            ban_1 = true;
+        }
+
+        return ban_1;
+    }
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+
+    
+    
+    
+    
+    
+    
 
     public int[] getConj() {
         return conj;
@@ -107,6 +186,11 @@ public class Conjuntos {
     public int getTamaño() {
         return tamaño;
     }
+
+    public void setTamaño(int tamaño) {
+        this.tamaño = tamaño;
+    }
+    
     
     
     
