@@ -30,7 +30,7 @@ public class Oper_Conjuntos {
                 + "2- mostrar conjunto\n"
                 + "3- Borrar dato en conjunto\n"
                 + "4- Contar elementos de los conjuntos\n"
-                + "5- \n"
+                + "5- Buscar dato dentro de un conjunto \n"
                 + "6- \n"
                 + "7- \n"
                 + "8- \n"
