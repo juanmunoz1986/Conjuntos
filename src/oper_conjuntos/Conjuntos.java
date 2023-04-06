@@ -80,7 +80,7 @@ public class Conjuntos {
 
     }
 
-    public void Mostrar() {
+    public int[] Mostrar() {
         String b = " ";
 
         for (int i = 0; i < tamaño; i++) {
@@ -90,7 +90,7 @@ public class Conjuntos {
         }
 
         System.out.println(b);
-
+      return conj;
     }
 
     public int cantidadElementos() {
