@@ -4,6 +4,8 @@
  */
 package oper_conjuntos;
 
+import javax.swing.JOptionPane;
+
 /**
  *
  * @author juano
@@ -275,14 +277,18 @@ public class Conjuntos {
     }
 
     public void borrar(int a) {
-
+      
         for (int i = 0; i < tamaño; i++) {
             if (conj[i] == a) {
                 conj[i] = 0;
-
+                   
             }
 
         }
+        
+        
+        
+        
 
     }
 
@@ -363,11 +369,29 @@ public class Conjuntos {
    } 
 
     
-    //esto es un ensayo
-   
-   // esto es otro ensayo
-    
-    
+    public void agregar(int a){
+        
+        
+     
+        int pos = posicion(0);
+        
+        if(pos==0 && conj[0]==0){
+            
+        conj[0]=a;    
+            
+        }
+        
+        else if (pos!=0){
+        conj[pos]=a;
+        
+        }
+        
+        else{
+        JOptionPane.showMessageDialog(null, "el conjunto esta lleno elimine un elemento antes de ingresar nuevamente");
+        }
+        
+        
+    }
 
     
     
